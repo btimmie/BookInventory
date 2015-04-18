@@ -7,6 +7,6 @@ Inventory or Stock refers to the goods and materials that a business holds for t
 This program will help the users (librarian and manager) keep track of the stock they have in store. The reasons why stock taking is so important is because of the following reasons.
 
 
-  - Type some Markdown on the left
+  - Seasonal Demand: demands varies periodically, but producers’ capacity is fixed. This can lead to stock accumulation, meaning     that certain items will be seasonal, and thus more items will be stocked accordingly.
   - See HTML in the right
   - Magic
