@@ -17,6 +17,6 @@ This program will help the users (librarian and manager) keep track of the stock
 
 This program will improve the Inventory of the library by achieving the above mentioned points
 
-![alt tag](BookInventory/Main.jpg)
+![alt tag](https://github.com/btimmie/BookInventory/blob/master/Main.jpg)
 
   
