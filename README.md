@@ -1,4 +1,4 @@
-# BookInventory
+# BookInventory #
 
 ##Background 
 Inventory or Stock refers to the goods and materials that a business holds for the ultimate purpose of resale. The purpose of this program is to help in assisting with that. Taking stock and making orders manually is a time consuming exercise and this program will help to automate that process, thus ensuring that everything works smoothly and more effectively
