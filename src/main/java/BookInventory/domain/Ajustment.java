@@ -12,22 +12,27 @@ import java.util.Date;
 public class Ajustment implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private Long id;
     @Column(unique = true)//makes the code unique
     private String code;
     private String itemName;
     private Date ajustmentDate;
     private int amount;
 
+
     private Ajustment(){
     }
 
     public Ajustment(Builder builder){
-
+        this.id=builder.id;
+        this.code=builder.code;
+        this.itemName=builder.itemName;
+        this.ajustmentDate=builder.ajustmentDate;
+        this.amount=builder.amount;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public String getCode() {
@@ -47,6 +52,7 @@ public class Ajustment implements Serializable {
     }
 
     public static class Builder{
+        private Long id;
         private String code;
         private String itemName;
         private Date ajustmentDate;
@@ -91,20 +97,20 @@ public class Ajustment implements Serializable {
 
         Ajustment ajustment = (Ajustment) o;
 
-        if (Id != null ? !Id.equals(ajustment.Id) : ajustment.Id != null) return false;
+        if (id != null ? !id.equals(ajustment.id) : ajustment.id != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        return Id != null ? Id.hashCode() : 0;
+        return id != null ? id.hashCode() : 0;
     }
 
     @Override
     public String toString() {
         return "Ajustment{" +
-                "Id=" + Id +
+                "Id=" + id +
                 ", code='" + code + '\'' +
                 '}';
     }
