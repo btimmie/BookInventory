@@ -5,6 +5,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by student on 2015/04/25.
@@ -18,6 +19,7 @@ public class Ajustment implements Serializable {
     private String itemName;
     private Date ajustmentDate;
     private int amount;
+    private List<Employee> employeeList;
 
 
     private Ajustment(){
@@ -29,6 +31,7 @@ public class Ajustment implements Serializable {
         this.itemName=builder.itemName;
         this.ajustmentDate=builder.ajustmentDate;
         this.amount=builder.amount;
+        this.employeeList=builder.employeeList;
     }
 
     public Long getId() {
@@ -51,12 +54,17 @@ public class Ajustment implements Serializable {
         return amount;
     }
 
+    public List<Employee> getEmployeeList() {
+        return employeeList;
+    }
+
     public static class Builder{
         private Long id;
         private String code;
         private String itemName;
         private Date ajustmentDate;
         private int amount;
+        private List<Employee> employeeList;
 
         public Builder(String code){
             this.code=code;
@@ -82,6 +90,7 @@ public class Ajustment implements Serializable {
             this.itemName = value.getItemName();
             this.ajustmentDate = value.getAjustmentDate();
             this.amount = value.getAmount();
+            this.employeeList=value.getEmployeeList();
             return this;
         }
 
