@@ -77,6 +77,33 @@ public class InventoryItem implements Serializable {
             return this;
         }
 
+        public InventoryItem build(){
+            return new InventoryItem(this);
+        }
 
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+
+            Builder builder = (Builder) o;
+
+            if (id != null ? !id.equals(builder.id) : builder.id != null) return false;
+
+            return true;
+        }
+
+        @Override
+        public int hashCode() {
+            return id != null ? id.hashCode() : 0;
+        }
+
+        @Override
+        public String toString() {
+            return "Builder{" +
+                    "id=" + id +
+                    ", code='" + code + '\'' +
+                    '}';
+        }
     }
 }
