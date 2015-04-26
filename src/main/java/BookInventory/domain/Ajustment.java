@@ -85,6 +85,11 @@ public class Ajustment implements Serializable {
             return this;
         }
 
+        public Builder employeeList(List<Employee> value){
+            this.employeeList=value;
+            return this;
+        }
+
         public Builder copy(Ajustment value){
             this.code = value.getCode();
             this.itemName = value.getItemName();

@@ -1,4 +1,4 @@
-package BookInventory.config;
+package BookInventory.config.factory;
 
 import BookInventory.domain.InventoryItem;
 import BookInventory.domain.Supplier;
