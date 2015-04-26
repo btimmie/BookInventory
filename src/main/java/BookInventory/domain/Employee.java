@@ -1,9 +1,9 @@
 package BookInventory.domain;
 
-import java.io.Serializable;
-
 /**
  * Created by student on 2015/04/25.
  */
-public class Employee implements Serializable {
+public interface Employee {
+    public String getFirstnName();
+    public String getLastName();
 }

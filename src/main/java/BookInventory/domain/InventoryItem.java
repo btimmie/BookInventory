@@ -1,5 +1,7 @@
 package BookInventory.domain;
 
+import org.aspectj.apache.bcel.generic.RET;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,16 +21,18 @@ public class InventoryItem implements Serializable {
     private String name;
     private String description;
     private List<Consumtion> consumtionList;
+    private List<Return> returnList;
 
     private InventoryItem(){
     }
 
     public InventoryItem(Builder builder){
-        id=builder.id;
-        code=builder.code;
-        name=builder.name;
-        description=builder.description;
-        consumtionList=builder.consumtionList;
+        this.id=builder.id;
+        this.code=builder.code;
+        this.name=builder.name;
+        this.description=builder.description;
+        this.consumtionList=builder.consumtionList;
+        this.returnList=builder.returnList;
     }
 
     public Long getId() {
@@ -51,12 +55,17 @@ public class InventoryItem implements Serializable {
         return consumtionList;
     }
 
+    public List<Return> getReturnList(){
+        return returnList;
+    }
+
     public static class Builder{
         private Long id;
         private String code;
         private String name;
         private String description;
         private List<Consumtion> consumtionList;
+        private List<Return> returnList;
 
         public Builder(String code){
             this.code=code;
@@ -74,6 +83,24 @@ public class InventoryItem implements Serializable {
 
         public Builder description(String value){
             this.description=value;
+            return this;
+        }
+
+        public Builder consumtionList(List<Consumtion> value){
+            this.consumtionList =value;
+            return this;
+        }
+
+        public Builder returnList(List<Return> value){
+            this.returnList =value;
+            return this;
+        }
+
+        public Builder copy(InventoryItem value){
+            this.code = value.getCode();
+            this.name = value.getName();
+            this.description = value.getDescription();
+            this.consumtionList = value.getConsumtionList();
             return this;
         }
 
