@@ -1,14 +1,12 @@
 package BookInventory.domain;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * Created by student on 2015/04/25.
  */
+@Entity
 public class Manager implements Serializable,Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -40,12 +38,12 @@ public class Manager implements Serializable,Employee {
 
     @Override
     public String getFirstnName() {
-        return null;
+        return firstName;
     }
 
     @Override
     public String getLastName() {
-        return null;
+        return lastName;
     }
 
     public static class Builder{

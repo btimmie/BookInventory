@@ -18,5 +18,4 @@ public class ManagerFactory {
                 .build();
         return manager;
     }
-
 }

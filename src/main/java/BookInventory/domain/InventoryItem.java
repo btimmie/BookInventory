@@ -2,16 +2,14 @@ package BookInventory.domain;
 
 import org.aspectj.apache.bcel.generic.RET;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by student on 2015/04/25.
  */
+@Embeddable
 public class InventoryItem implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,14 +18,22 @@ public class InventoryItem implements Serializable {
     private String code;
     private String name;
     private String description;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "inventoryItem_id")
     private List<Consumtion> consumtionList;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "inventoryItem_id")
     private List<Return> returnList;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "inventoryItem_id")
+    private Supplier supplier;
 
     private InventoryItem(){
     }
 
     public InventoryItem(Builder builder){
         this.id=builder.id;
+        this.supplier=builder.supplier;
         this.code=builder.code;
         this.name=builder.name;
         this.description=builder.description;
@@ -37,6 +43,10 @@ public class InventoryItem implements Serializable {
 
     public Long getId() {
         return id;
+    }
+
+    public Supplier getSupplier() {
+        return supplier;
     }
 
     public String getCode() {
@@ -61,6 +71,7 @@ public class InventoryItem implements Serializable {
 
     public static class Builder{
         private Long id;
+        private Supplier supplier;
         private String code;
         private String name;
         private String description;
@@ -81,6 +92,11 @@ public class InventoryItem implements Serializable {
             return this;
         }
 
+        public Builder supplier(Supplier value){
+            this.supplier=value;
+            return this;
+        }
+
         public Builder description(String value){
             this.description=value;
             return this;
@@ -97,6 +113,7 @@ public class InventoryItem implements Serializable {
         }
 
         public Builder copy(InventoryItem value){
+            this.supplier = value.getSupplier();
             this.code = value.getCode();
             this.name = value.getName();
             this.description = value.getDescription();

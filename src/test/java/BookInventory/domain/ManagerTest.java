@@ -43,15 +43,15 @@ public class ManagerTest {
         Manager manager = ManagerFactory
                 .createManager(values);
 
-        Manager newMamager = new Manager
+        Manager newManager = new Manager
                 .Builder(manager.getCode())
                 .firstName("Felicity")
                 .lastName("Queen")
                 .build();
 
         assertEquals("D15C", manager.getCode());
-        assertEquals("D15C", newMamager.getCode());
+        assertEquals("D15C", newManager.getCode());
         assertEquals("Smoak",manager.getLastName());
-        assertEquals("Queen",newMamager.getLastName());
+        assertEquals("Queen",newManager.getLastName());
     }
 }

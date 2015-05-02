@@ -10,6 +10,7 @@ import java.util.List;
 /**
  * Created by student on 2015/04/25.
  */
+@Entity
 public class Ajustment implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,6 +20,8 @@ public class Ajustment implements Serializable {
     private String itemName;
     private Date ajustmentDate;
     private int amount;
+    @OneToMany
+    @JoinColumn(name = "ajustment_id")
     private List<Employee> employeeList;
 
 

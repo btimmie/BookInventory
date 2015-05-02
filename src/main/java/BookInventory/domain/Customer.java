@@ -1,15 +1,13 @@
 package BookInventory.domain;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by student on 2015/04/25.
  */
+@Entity
 public class Customer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,6 +16,7 @@ public class Customer implements Serializable {
     private String code;
     private String firstName;
     private String lastName;
+
     private List<Consumtion>consumtionList;
 
     private Customer(){

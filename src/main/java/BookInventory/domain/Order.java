@@ -1,9 +1,6 @@
 package BookInventory.domain;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -11,6 +8,7 @@ import java.util.List;
 /**
  * Created by student on 2015/04/25.
  */
+@Entity
 public class Order implements Serializable {
 
     @Id
@@ -21,12 +19,17 @@ public class Order implements Serializable {
     private int quantity;
     private Date datePlaced;
     private String description;
+    @Embedded
+    private InventoryItem inventoryItem;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="order_id")
     private List<InventoryItem> inventoryItemList;
 
     private Order(){
     }
 
     public Order(Builder builder){
+        this.inventoryItem=builder.inventoryItem;
         this.id=builder.id;
         this.code=builder.code;
         this.quantity=builder.quantity;
@@ -65,6 +68,7 @@ public class Order implements Serializable {
         private int quantity;
         private Date datePlaced;
         private String description;
+        private InventoryItem inventoryItem;
         private List<InventoryItem> inventoryItemList;
 
 
@@ -79,6 +83,11 @@ public class Order implements Serializable {
 
         public Builder quantity(int value){
             this.quantity=value;
+            return this;
+        }
+
+        public Builder inventoryItem(InventoryItem value){
+            this.inventoryItem=value;
             return this;
         }
 
@@ -98,6 +107,7 @@ public class Order implements Serializable {
         }
 
         public Builder copy(Order value) {
+            this.inventoryItem=value.inventoryItem;
             this.code = value.getCode();
             this.quantity = value.getQuantity();
             this.datePlaced = value.getDatePlaced();

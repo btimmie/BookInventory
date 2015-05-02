@@ -1,9 +1,6 @@
 package BookInventory.domain;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -11,6 +8,7 @@ import java.util.List;
 /**
  * Created by student on 2015/04/25.
  */
+@Entity
 public class Return implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,6 +17,8 @@ public class Return implements Serializable {
     private String code;
     private Date dateReturned;
     private int quantity;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "return_id")
     private List<Customer> customerList;
 
     private Return(){

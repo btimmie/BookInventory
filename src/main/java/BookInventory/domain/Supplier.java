@@ -2,16 +2,14 @@ package BookInventory.domain;
 
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by student on 2015/04/25.
  */
+@Entity
 public class Supplier implements Serializable {
 
     @javax.persistence.Id
