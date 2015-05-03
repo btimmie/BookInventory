@@ -41,12 +41,6 @@ public class InventoryItemCrudTest extends AbstractTestNGSpringContextTests {
         InventoryItem inventoryItem = InventoryItemFactory
                 .createInventoryItem(values, consumtionList, returnList);
 
-        InventoryItem newInventoryItem = new InventoryItem
-                .Builder(inventoryItem.getCode())
-                .copy(inventoryItem)
-                .name("DVD")
-                .build();
-
         //repository.save(inventoryItem);
         //id=inventoryItem
         Assert.assertNotNull(inventoryItem);
@@ -57,6 +51,27 @@ public class InventoryItemCrudTest extends AbstractTestNGSpringContextTests {
         InventoryItem inventoryItem = repository.findOne(id);
         Assert.assertNotNull(inventoryItem);
     }
-    
+
+    @Test(dependsOnMethods = "read")
+    public void update() throws Exception{
+        List<Consumtion> consumtionList = new ArrayList<Consumtion>();
+        List<Return> returnList = new ArrayList<Return>();
+        Map<String,String> values = new HashMap<String, String>();
+
+        values.put("code","00789");
+        values.put("name","Book");
+        values.put("description","About a group of four intelligent individuals");
+
+        InventoryItem inventoryItem = InventoryItemFactory
+                .createInventoryItem(values,consumtionList,returnList);
+
+        InventoryItem newInventoryItem = new InventoryItem
+                .Builder(inventoryItem.getCode())
+                .copy(inventoryItem)
+                .name("DVD")
+                .build();
+        InventoryItem updateInventoryItem = repository.findOne(id);
+        org.testng.Assert.assertEquals(updateInventoryItem.getName(),"DVD");
+    }
 
 }
