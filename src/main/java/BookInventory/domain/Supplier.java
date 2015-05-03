@@ -1,8 +1,9 @@
 package BookInventory.domain;
 
-import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.io.Serializable;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
 @Entity
 public class Supplier implements Serializable {
 
-    @javax.persistence.Id
+
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(unique = true)//makes the code unique

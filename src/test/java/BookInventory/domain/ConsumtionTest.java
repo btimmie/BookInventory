@@ -1,7 +1,7 @@
 package BookInventory.domain;
 
 import BookInventory.config.factory.ConsumtionFactory;
-import junit.framework.Assert;
+
 import org.junit.Before;
 import org.junit.Test;
 
