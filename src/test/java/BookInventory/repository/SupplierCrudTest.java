@@ -5,11 +5,11 @@ import BookInventory.domain.InventoryItem;
 import BookInventory.domain.Supplier;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.Assert;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,7 +18,7 @@ import java.util.Map;
  * Created by student on 2015/05/03.
  */
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@FixMethodOrder
 @SpringApplicationConfiguration(classes= App.class)
 @WebAppConfiguration
 public class SupplierCrudTest {
