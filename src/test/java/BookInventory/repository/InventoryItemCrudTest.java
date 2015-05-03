@@ -73,5 +73,12 @@ public class InventoryItemCrudTest extends AbstractTestNGSpringContextTests {
         InventoryItem updateInventoryItem = repository.findOne(id);
         org.testng.Assert.assertEquals(updateInventoryItem.getName(),"DVD");
     }
+    @Test(dependsOnMethods = "update")
+    public void delete() throws Exception{
+        InventoryItem inventoryItem = repository.findOne(id);
+        repository.delete(inventoryItem);
+        InventoryItem newInventoryItem = repository.findOne(id);
+        org.testng.Assert.assertNull(newInventoryItem);
+    }
 
 }
