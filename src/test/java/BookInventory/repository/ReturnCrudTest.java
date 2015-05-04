@@ -37,7 +37,7 @@ public class ReturnCrudTest {
 
         Return rt = ReturnFactory
                 .createReturn(5,values,customerList);
-        //repository.save(rt);
+        repository.save(rt);
         Assert.assertNotNull(rt);
 
     }
