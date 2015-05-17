@@ -20,6 +20,7 @@ public class SupplierTest {
     @Test
     public void testCreateSupplier() throws Exception{
         List<InventoryItem> inventoryItemList = new ArrayList<InventoryItem>();
+        List<Order> orderList = new ArrayList<Order>();
         Map<String,String>values = new HashMap<String, String>();
 
         values.put("code","CNA007");
@@ -27,13 +28,14 @@ public class SupplierTest {
         values.put("address","54 Main Road Observatory");
 
         Supplier supplier = SupplierFactory
-                .createSuplier(values,inventoryItemList);
+                .createSuplier(values,inventoryItemList,orderList);
 
         Assert.assertEquals("CNA",supplier.getName());
     }
     @Test
     public void testUpdateSupplier() throws Exception{
         List<InventoryItem> inventoryItemList = new ArrayList<InventoryItem>();
+        List<Order> orderList = new ArrayList<Order>();
         Map<String,String>values = new HashMap<String, String>();
 
         values.put("code","CNA007");
@@ -41,7 +43,7 @@ public class SupplierTest {
         values.put("address","54 Main Road Observatory");
 
         Supplier supplier = SupplierFactory
-                .createSuplier(values,inventoryItemList);
+                .createSuplier(values,inventoryItemList,orderList);
 
         Supplier newSupplier = new Supplier
                 .Builder(supplier.getCode())

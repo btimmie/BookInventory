@@ -1,7 +1,7 @@
 package BookInventory.api;
 
-import BookInventory.Services.InventoryItemService;
-import BookInventory.domain.Consumtion;
+import BookInventory.Services.SupplierOrderService;
+import BookInventory.domain.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,13 +14,12 @@ import java.util.List;
  * Created by student on 2015/05/17.
  */
 @RestController
-@RequestMapping(value="/inventory/**")
-public class InventoryPage {
-
+@RequestMapping(value="/order/**")
+public class OrderPage {
     @Autowired
-    private InventoryItemService service;
+    private SupplierOrderService service;
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public List<Consumtion> getConsumtions(@PathVariable Long id){
-        return service.getAllConsumtions(id);
+    public List<Order> getOrders(@PathVariable Long id){
+        return service.getOrders(id);
     }
 }

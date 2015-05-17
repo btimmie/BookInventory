@@ -29,7 +29,7 @@ public class SupplerPage {
 
     @RequestMapping(value = "/suppliers", method = RequestMethod.GET)
     public List<Supplier> getSuppliers(){
-        
+
         return service.getSuppliers();
     }
 
