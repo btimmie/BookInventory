@@ -1,45 +1,46 @@
 package BookInventory.repository;
+
 import BookInventory.App;
-import BookInventory.config.factory.SupplierFactory;
 import BookInventory.domain.InventoryItem;
 import BookInventory.domain.Supplier;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.Assert;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 /**
  * Created by student on 2015/05/03.
  */
 
-@FixMethodOrder
+
 @SpringApplicationConfiguration(classes= App.class)
 @WebAppConfiguration
-public class SupplierCrudTest {
+public class SupplierCrudTest extends AbstractTestNGSpringContextTests {
     private Long id;
+
     @Autowired
-    SupplierRepository repository;
+    private SupplierRepository repository;
     @Test
     public void aCreate() throws Exception{
-        List<InventoryItem> inventoryItemList = new ArrayList<InventoryItem>();
+        /*List<InventoryItem> inventoryItemList = new ArrayList<InventoryItem>();
         Map<String,String>values = new HashMap<String, String>();
         values.put("code", "CNA007");
         values.put("name","CNA");
         Supplier supplier = SupplierFactory
                 .createSuplier(values,inventoryItemList);
-        Assert.assertNotNull(supplier);
-        /*List<Supplier> supplierList = new ArrayList<Supplier>();
+        Assert.assertNotNull(supplier);*/
+        List<InventoryItem> inventoryItemList = new ArrayList<InventoryItem>();
         Supplier supplier = new Supplier.Builder("ABC")
         .name("Book world").address("45 Lower Main Road Observatory").build();
+
         repository.save(supplier);
         id=supplier.getId();
-        Assert.assertNotNull(supplier.getId());*/
+        Assert.assertNotNull(supplier.getId());
     }
 
     @Test

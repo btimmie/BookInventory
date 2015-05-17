@@ -4,11 +4,10 @@ import BookInventory.App;
 import BookInventory.config.factory.ReturnFactory;
 import BookInventory.domain.Customer;
 import BookInventory.domain.Return;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.Assert;
 
@@ -20,14 +19,14 @@ import java.util.Map;
 /**
  * Created by student on 2015/05/03.
  */
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+
 @SpringApplicationConfiguration(classes= App.class)
 @WebAppConfiguration
-public class ReturnCrudTest {
+public class ReturnCrudTest extends AbstractTestNGSpringContextTests {
     private Long id;
 
     @Autowired
-    ReturnRepository repository;
+    private ReturnRepository repository;
     @Test
     public void aCreate() throws Exception{
         List<Customer> customerList = new ArrayList<Customer>();
@@ -38,8 +37,8 @@ public class ReturnCrudTest {
         Return rt = ReturnFactory
                 .createReturn(5,values,customerList);
         repository.save(rt);
+        id=rt.getId();
         Assert.assertNotNull(rt);
-
     }
 
     @Test

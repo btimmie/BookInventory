@@ -22,10 +22,10 @@ import java.util.Map;
 @SpringApplicationConfiguration(classes= App.class)
 @WebAppConfiguration
 public class CustomerCrudTest extends AbstractTestNGSpringContextTests {
-    @Autowired
     private Long id;
 
-    CustomerRepository repository;
+    @Autowired
+    private CustomerRepository repository;
 
     @Test
     public void create() throws Exception{

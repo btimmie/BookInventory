@@ -3,7 +3,7 @@ package BookInventory.repository;
 import BookInventory.App;
 import BookInventory.config.factory.ManagerFactory;
 import BookInventory.domain.Manager;
-import org.junit.Assert;
+import org.testng.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -20,10 +20,10 @@ import java.util.Map;
 @SpringApplicationConfiguration(classes= App.class)
 @WebAppConfiguration
 public class ManagerCrudTest extends AbstractTestNGSpringContextTests{
-    @Autowired
     private Long id;
 
-    ManagerRepository repository;
+    @Autowired
+    private ManagerRepository repository;
 
     @Test
     public void create() throws Exception{
@@ -66,7 +66,7 @@ public class ManagerCrudTest extends AbstractTestNGSpringContextTests{
             Manager manager = repository.findOne(id);
             repository.delete(manager);
             Manager deletedManager = repository.findOne(id);
-            org.testng.Assert.assertNull(deletedManager);
+            Assert.assertNull(deletedManager);
     }
 
 }

@@ -23,10 +23,10 @@ import java.util.Map;
 @SpringApplicationConfiguration(classes= App.class)
 @WebAppConfiguration
 public class InventoryItemCrudTest extends AbstractTestNGSpringContextTests {
-    @Autowired
     private Long id;
 
-    InventoryRepository repository;
+    @Autowired
+    private InventoryRepository repository;
 
     @Test
     public void create() throws Exception{
@@ -41,8 +41,8 @@ public class InventoryItemCrudTest extends AbstractTestNGSpringContextTests {
         InventoryItem inventoryItem = InventoryItemFactory
                 .createInventoryItem(values, consumtionList, returnList);
 
-        //repository.save(inventoryItem);
-        //id=inventoryItem
+        repository.save(inventoryItem);
+        id=inventoryItem.getId();
         Assert.assertNotNull(inventoryItem);
     }
 

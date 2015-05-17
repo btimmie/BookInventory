@@ -19,10 +19,10 @@ import java.util.Map;
 @SpringApplicationConfiguration(classes= App.class)
 @WebAppConfiguration
 public class LibrarianCrudTest extends AbstractTestNGSpringContextTests {
-    @Autowired
     private Long id;
 
-    LibrarianRepository repository;
+    @Autowired
+    private LibrarianRepository repository;
 
     @Test
     public void create() throws Exception{

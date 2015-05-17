@@ -25,8 +25,9 @@ import java.util.Map;
 @WebAppConfiguration
 public class OrderCrudTest extends AbstractTestNGSpringContextTests {
     private Long id;
+
     @Autowired
-    OrderRepository repository;
+    private OrderRepository repository;
     @Test
     public void create() throws Exception{
         List<InventoryItem> inventoryItemList = new ArrayList<InventoryItem>();
@@ -36,7 +37,7 @@ public class OrderCrudTest extends AbstractTestNGSpringContextTests {
         values.put("description","Urgent order for a vey special client");
 
         Order order = OrderFactory
-                .createOrder(20, values, inventoryItemList);
+                .createOrder(20, values, null);
 
         repository.save(order);
         id=order.getId();
