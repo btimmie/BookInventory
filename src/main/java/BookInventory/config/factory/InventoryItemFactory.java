@@ -16,6 +16,8 @@ public class InventoryItemFactory {
                 .Builder(values.get("code"))
                 .name(values.get("name"))
                 .description(values.get("description"))
+                .consumtionList(consumtionList)
+                .returnList(returnList)
                 .build();
         return inventoryItem;
 

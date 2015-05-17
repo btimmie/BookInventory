@@ -15,6 +15,7 @@ public class ReturnFactory {
         Return ret = new Return
                 .Builder(values.get("code"))
                 .quantity(quantity)
+                .customerList(customerList)
                 .build();
         return ret;
     }

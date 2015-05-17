@@ -1,10 +1,7 @@
 package BookInventory.domain;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,7 +15,6 @@ public class Ajustment implements Serializable {
     @Column(unique = true)//makes the code unique
     private String code;
     private String itemName;
-    private Date ajustmentDate;
     private int amount;
     @OneToMany
     @JoinColumn(name = "ajustment_id")
@@ -32,7 +28,6 @@ public class Ajustment implements Serializable {
         this.id=builder.id;
         this.code=builder.code;
         this.itemName=builder.itemName;
-        this.ajustmentDate=builder.ajustmentDate;
         this.amount=builder.amount;
         this.employeeList=builder.employeeList;
     }
@@ -49,9 +44,6 @@ public class Ajustment implements Serializable {
         return itemName;
     }
 
-    public Date getAjustmentDate() {
-        return ajustmentDate;
-    }
 
     public int getAmount() {
         return amount;
@@ -65,7 +57,6 @@ public class Ajustment implements Serializable {
         private Long id;
         private String code;
         private String itemName;
-        private Date ajustmentDate;
         private int amount;
         private List<Employee> employeeList;
 
@@ -73,16 +64,15 @@ public class Ajustment implements Serializable {
             this.code=code;
         }
 
+        public Builder id(Long value){
+            this.id=value;
+            return this;
+        }
+
         public Builder itemName(String value){
             this.itemName = value;
             return this;
         }
-
-        public Builder ajustmentDate(Date value){
-            this.ajustmentDate = value;
-            return this;
-        }
-
         public Builder amount(int value){
             this.amount = value;
             return this;
@@ -94,9 +84,9 @@ public class Ajustment implements Serializable {
         }
 
         public Builder copy(Ajustment value){
+
             this.code = value.getCode();
             this.itemName = value.getItemName();
-            this.ajustmentDate = value.getAjustmentDate();
             this.amount = value.getAmount();
             this.employeeList=value.getEmployeeList();
             return this;

@@ -1,7 +1,5 @@
 package BookInventory.domain;
 
-import org.aspectj.apache.bcel.generic.RET;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -27,6 +25,7 @@ public class InventoryItem implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "inventoryItem_id")
     private Supplier supplier;
+    private Employee employee;
 
     private InventoryItem(){
     }

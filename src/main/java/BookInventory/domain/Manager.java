@@ -8,6 +8,7 @@ import java.io.Serializable;
  */
 @Entity
 public class Manager implements Serializable,Employee {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
