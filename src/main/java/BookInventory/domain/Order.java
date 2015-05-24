@@ -91,11 +91,6 @@ public class Order implements Serializable {
             return this;
         }
 
-        public Builder datePlaced(Date value) {
-            this.datePlaced=value;
-            return this;
-        }
-
         public Builder description(String value){
             this.description=value;
             return this;
